@@ -2,7 +2,7 @@
 /*global require, module,  console */
 
 var _ = require("underscore");
-var http = require("http");
+// var http = require("http");
 
 var engine = {};
 

@@ -1,7 +1,7 @@
 applications:
 - name: cfapimgrmon
   path: ./
-  memory: 128M
+  memory: 256M
   buildpack: nodejs_buildpack
 
 
