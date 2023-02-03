@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="nl" ng-app="my.body">
+	<head>
+		<link href="./css/bootstrap.min.css" rel="stylesheet">
+		<link href="./css/oe-monitor.css" rel="stylesheet">
+	</head>
+	<body ng-controller="BodyController">
+		
+		<div ng-controller="BusinessSystemsController" >
+			<div class="row">
+				<div class="col-md-2" class="bsSelector">
+					<input type="bsName" class="form-control" id="bsName"
+					placeholder="Business Systems"
+					ng-model="searchQueryBS"
+					ng-change="setBSFilter(searchQueryBS)"/>
+					
+					<div ng-repeat="item in filteredBusinessSystems" >
+						<button type="submit" ng-mousedown="bsSelect(item.id)" class="btn btn-primary btn-block"
+						ng-disabled="checkBSButtonActive(item.id)" ><span ng-bind="item.description"></span></button>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<canvas id="myCanvas" width="1000px" height="750px" style="border:0px solid #C0C0C0;">
+					Your browser does not support the HTML5 canvas tag.</canvas>
+				</div>
+				<div class="col-md-2">
+					<input type="msName" class="form-control" id="msName"
+					placeholder="Messages"
+					ng-model="searchQueryMS"
+					ng-change="setMSFilter(searchQueryMS)"/>
+					
+					<div ng-repeat="item in filteredMessages">
+						<button type="submit" ng-mousedown="messageSelect(item.id)" class="btn btn-primary btn-block"
+						ng-disabled="checkMSButtonActive(item.id)"><span ng-bind="item.description"></span></button>
+					</div>
+				</div>
+			</div>
+			<footer class="footer">
+				<div class="container">
+					<!--p class="text-muted">Place sticky footer content here.</p-->
+                      <button type="submit" ng-click="register()" class="btn btn-gray"><span>Visualize traffic</span></button>
+                      
+                      <button type="submit" ng-click="" class="btn btn-default"><span>&LT;&LT;</span></button>
+                      <button type="submit" ng-click="" class="btn btn-danger"><span>REC</span></button>
+                      <button type="submit" ng-click="" class="btn btn-default"><span>&GT;</span></button>
+                      <button type="submit" ng-click="" class="btn btn-default"><span>&GT;&GT;</span></button>
+
+				</div>
+			</footer>
+		</div>
+		<script src="./lib/jquery.min.js"></script>
+		<script src="./lib/underscore-min.js"></script>
+		<script src="./lib/angular.min.js"></script>
+		<script src="./app/oe-monitor-canvas.js"></script>
+		<script src="./app/mockdatacanvas.js"></script>
+		<script src="./app/websocketclient.js"></script>
+		<script src="./app/bsController.js"></script>
+		<script src="./app/bodyController.js"></script>
+	</body>
+</html>
