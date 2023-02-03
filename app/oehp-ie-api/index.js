@@ -13,6 +13,11 @@ var api = function(app, configuration, engine) {
 		res.send(engine.statistics);
 	});
 
+	app.get("/api/trigger/:id", function trigger(req, res) {
+		console.log(req.params.id)
+		res.send("Ok");
+	});	
+
 	app.get("/api/bs", function getBusinessSystems(req, res) {
 		res.send(configuration.businessSystems);
 	});

@@ -39,3 +39,5 @@ angular.module("my.body", ["my.module"])
 		return new Body();
 
 	}]);
+
+	registerWebsocket();	

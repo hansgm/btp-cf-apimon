@@ -112,8 +112,12 @@ engine.httpRequest = function(options, request, iResponse) {
 
 	_.each(options.listeners, function(listener) {
 		listener.send("fire::" + options.messageId);
+		console.log(messageid);
 	});
 
+	iResponse.status(200).send("Ok")
+
+	/*
 	var statRecord = new StatRecord(options.messageId);
 
 	var req = http.request(options.httpOptions, function(res) {
@@ -126,9 +130,11 @@ engine.httpRequest = function(options, request, iResponse) {
 			iResponse.status(200).send(data);
 		});
 	});
+	
 
 	if (request.body) {
 		req.write(JSON.stringify(request.body));
+	// 	req.write("Ok");
 	}
 
 	req.on('error', function(e) {
@@ -147,6 +153,8 @@ engine.httpRequest = function(options, request, iResponse) {
 		});
 	});
 	req.end();
+
+	*/
 };
 
 engine.rcvPUT = function(message, app) {
@@ -188,6 +196,9 @@ engine.start = function(iConf, app) {
 };
 
 engine.registerMonitor = function(wsConnection, messageId) {
+	console.log("Register")
+    console.log(messageId)
+	
 	var messageToRegister = _.find(engine.configuration.messages, function(message) {
 		return (message.id === messageId);
 	});

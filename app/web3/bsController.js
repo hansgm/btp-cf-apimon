@@ -78,6 +78,7 @@ function BusinessSystemsController($scope, BusinessSystems, Messages, $log) {
 	}
 
 	$scope.register = function() {
+		console.log("Hier")
 		registerWebsocket();
 	}
 
